@@ -1,0 +1,29 @@
+reference:
+- title: "Load data"
+  desc: "Functions to load data into the correct format/shape for the attribution functions"
+- contents: 
+  - fa_load_assets_xts
+  - fa_load_fund_xts
+- title: "Return attribution"
+  desc: "Functions for calculating attribution effects"
+- contents:
+  - fa_attribution
+  - fa_attribution_relative
+  - fa_add_fund_level
+- title: "Charts and tables"
+  desc: "Analyse and present attribution results"
+- contents: 
+  - fa_chart_cumulative_attribution
+  - fa_table_log_returns_pa
+- title: "Output helper functions"
+- contents: 
+  - fa_chart_data_prep
+  - theme_fa
+- title: "Exmaple data"
+  desc: "Invented examples to demonstrate calculations and functions"
+- contents:
+  - returns_short
+  - fundamental_yield_short
+  - returns_long
+  - fundamental_yield_long
+

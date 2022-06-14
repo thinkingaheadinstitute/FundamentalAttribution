@@ -1,0 +1,34 @@
+Package: FundamentalAttribution
+Title: Applying Fundamental Attribution to portfolios
+Version: 0.1
+Authors@R: 
+    c(person(given = "WTW",
+             role = c("cph","aut")),
+      person(given = "James",
+             family = "Price",
+             role = c("aut", "ctb", "cre"),
+             email = "james.c.price@willistowerswatson.com"))
+URL: https://github.com/thinkingaheadinstitute/FundamentalAttribution
+BugReports: https://github.com/thinkingaheadinstitute/FundamentalAttribution/issues
+Description: |
+  This package enables the analysis of portfolio returns using the Fundamental Attribution methodology. This attribution methodology separates portfolio returns into those arising from changes in portfolio valuation mulitple, underlying fundamental growth and portfolio activity (ie changes in asset weights within the portfolio).
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.0
+Imports: 
+    data.table,
+    dplyr,
+    ggplot2,
+    lifecycle,
+    magrittr,
+    scales,
+    tibble,
+    xts,
+    zoo
+Suggests:
+    bslib,
+    pkgdown
+Depends: 
+    R (>= 2.10)
