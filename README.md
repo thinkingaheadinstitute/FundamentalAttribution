@@ -36,7 +36,7 @@ This methodology was also developed to improve reporting practice across the inv
 This package can be installed from this repo in the normal way.
 
 ```r
-remotes::install_github(repo = 'thinkingaheadinstitute\FundamentalAttribution')
+remotes::install_github(repo = 'thinkingaheadinstitute/FundamentalAttribution')
 ```
 
 <br/>
@@ -56,6 +56,7 @@ library(FundamentalAttribution)
 This example will be use the `returns_long` and `fundamental_yield_long` datasets for the returns and yield of portfolios' underlying assets.
 
 ```r
+library(xts)
 head(returns_long, 5)
 head(fundamental_yield_long, 5)
 ```
