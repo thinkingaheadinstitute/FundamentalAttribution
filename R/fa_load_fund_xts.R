@@ -20,8 +20,10 @@ fa_load_fund_xts <- function(metric_to_price = NULL, fund_returns, metric_name =
 
   if (ncol(fund_returns) > 1) warning("Only the first column of 'fund_returns' will be used.")
   
-  if (!is.null(metric_to_price) & ncol(metric_to_price) > 1) warning("Only the first column of 'metric_to_price' will be used.")
-  if (!is.null(metric_to_price) & is.na(metric_name)) stop("'metric_name' must be supplied.")
+  if (!is.null(metric_to_price)){ 
+      if(ncol(metric_to_price) > 1) warning("Only the first column of 'metric_to_price' will be used.")
+      if (is.na(metric_name)) stop("'metric_name' must be supplied.")
+  }
   
   if (is.na(series_name)) series_name <- names(fund_returns)[1]
   
