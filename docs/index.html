@@ -34,7 +34,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">FundamentalAttribution</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.1</span>
       </span>
     </div>
 
@@ -98,7 +98,7 @@
 </h2>
 <p>This package can be installed from this repo in the normal way.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span>repo <span class="op">=</span> <span class="st">'thinkingaheadinstitute/FundamentalAttribution'</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span>repo <span class="op">=</span> <span class="st">'thinkingaheadinstitute/FundamentalAttribution'</span><span class="op">)</span></span></code></pre></div>
 <p><br></p>
 </div>
 <div class="section level2">
@@ -108,42 +108,42 @@
 <p>To follow this example, copy each code chunk into R and run in turn. Once complete the analysis will show positive attribution effects from the Growth and Activity return components.</p>
 <p>We begin by loading the library.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/thinkingaheadinstitute/FundamentalAttribution" class="external-link">FundamentalAttribution</a></span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/thinkingaheadinstitute/FundamentalAttribution" class="external-link">FundamentalAttribution</a></span><span class="op">)</span></span></code></pre></div>
 <p>This example will be use the <code>returns_long</code> and <code>fundamental_yield_long</code> datasets for the returns and yield of portfolios’ underlying assets.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/joshuaulrich/xts" class="external-link">xts</a></span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">returns_long</span>, <span class="fl">5</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">fundamental_yield_long</span>, <span class="fl">5</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/joshuaulrich/xts" class="external-link">xts</a></span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">returns_long</span>, <span class="fl">5</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">fundamental_yield_long</span>, <span class="fl">5</span><span class="op">)</span></span></code></pre></div>
 <p>As this is an example, the next step creates an xts of the asset starting weights. The portfolio will contain two stocks, each rebalanced to 50% weight at month end.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">weights</span> <span class="op">&lt;-</span> <span class="va">returns_long</span><span class="op">[</span><span class="op">-</span><span class="fl">1</span>,<span class="op">]</span>
-<span class="va">weights</span><span class="op">[</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fl">0</span>
-<span class="va">weights</span><span class="op">[</span>,<span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'b'</span>,<span class="st">'c'</span><span class="op">)</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fl">0.5</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">weights</span>, <span class="fl">5</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">weights</span> <span class="op">&lt;-</span> <span class="va">returns_long</span><span class="op">[</span><span class="op">-</span><span class="fl">1</span>,<span class="op">]</span></span>
+<span><span class="va">weights</span><span class="op">[</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fl">0</span></span>
+<span><span class="va">weights</span><span class="op">[</span>,<span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'b'</span>,<span class="st">'c'</span><span class="op">)</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fl">0.5</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">weights</span>, <span class="fl">5</span><span class="op">)</span></span></code></pre></div>
 <p>The asset weights, returns and yields are combined into a single data.table for the attribution analysis.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">asset_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/fa_load_assets_xts.html">fa_load_assets_xts</a></span><span class="op">(</span>metric_to_price <span class="op">=</span> <span class="va">fundamental_yield_long</span>, 
-                   start_weights <span class="op">=</span> <span class="va">weights</span>,
-                   asset_returns <span class="op">=</span> <span class="va">returns_long</span>, 
-                   metric_name <span class="op">=</span> <span class="st">'Example_yield'</span>,
-                   series_name <span class="op">=</span> <span class="st">'Rebalanced'</span><span class="op">)</span>
-
-<span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">asset_data</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">asset_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/fa_load_assets_xts.html">fa_load_assets_xts</a></span><span class="op">(</span>metric_to_price <span class="op">=</span> <span class="va">fundamental_yield_long</span>, </span>
+<span>                   start_weights <span class="op">=</span> <span class="va">weights</span>,</span>
+<span>                   asset_returns <span class="op">=</span> <span class="va">returns_long</span>, </span>
+<span>                   metric_name <span class="op">=</span> <span class="st">'Example_yield'</span>,</span>
+<span>                   series_name <span class="op">=</span> <span class="st">'Rebalanced'</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">asset_data</span><span class="op">)</span></span></code></pre></div>
 <p>The attribution analysis is applied to this data.table.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">results</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/fa_attribution.html">fa_attribution</a></span><span class="op">(</span><span class="va">asset_data</span><span class="op">)</span>
-
-<span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">results</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">results</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/fa_attribution.html">fa_attribution</a></span><span class="op">(</span><span class="va">asset_data</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">results</span><span class="op">)</span></span></code></pre></div>
 <p>The results of the attribution can then be displayed as a table or chart.</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">results</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="reference/fa_table_log_returns_pa.html">fa_table_log_returns_pa</a></span><span class="op">(</span><span class="op">)</span>
-
-<span class="va">results</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="reference/fa_chart_data_prep.html">fa_chart_data_prep</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="reference/fa_chart_cumulative_attribution.html">fa_chart_cumulative_attribution</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> 
-  <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html" class="external-link">facet_wrap</a></span><span class="op">(</span><span class="op">~</span><span class="va">variable</span><span class="op">)</span> <span class="op">+</span> 
-  <span class="fu"><a href="reference/theme_fa.html">theme_fa</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">results</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="reference/fa_table_log_returns_pa.html">fa_table_log_returns_pa</a></span><span class="op">(</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">results</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="reference/fa_chart_data_prep.html">fa_chart_data_prep</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="reference/fa_chart_cumulative_attribution.html">fa_chart_cumulative_attribution</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html" class="external-link">facet_wrap</a></span><span class="op">(</span><span class="op">~</span><span class="va">variable</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="reference/theme_fa.html">theme_fa</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <p>Once the attribution results are calculated alternative charts or analysis of the results may be more suitable depending on the purpose of performing the attribution.</p>
 </div>
 </div>
@@ -201,7 +201,7 @@
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.4.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer>

@@ -10,8 +10,8 @@ fa_chart_data_prep(
   labels = NA,
   extra_id_cols = NA,
   id_cols = c("index", "metric_name", "group_id", "series_name", "series_type"),
-  replace_na = c(growth = 0, activity = 0, multiple = 0, intra_period = 0, fund_return
-    = 0)
+  replace_na = c(growth = 0, activity = 0, multiple = 0, intra_period = 0, fund_return =
+    0)
 )
 }
 \arguments{
