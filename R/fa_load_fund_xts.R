@@ -15,7 +15,7 @@ fa_load_fund_xts <- function(metric_to_price = NULL, fund_returns, metric_name =
   
 
   check_xts <- list(fund_returns)
-  if (!is.null(metric_to_price)) check_xts <- c(check_xts, metric_to_price)
+  if (!is.null(metric_to_price)) check_xts <- c(check_xts, list(metric_to_price))
   if (any(!sapply(check_xts, FUN = function(x){'xts' %in% class(x)}))) stop("Only 'xts' objects can be used.")
 
   if (ncol(fund_returns) > 1) warning("Only the first column of 'fund_returns' will be used.")
